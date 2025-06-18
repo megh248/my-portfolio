@@ -1,5 +1,4 @@
-'use client';
-
+import React from 'react';
 import { Card, Badge, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 

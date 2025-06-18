@@ -1,10 +1,9 @@
-'use client';
-
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import AboutSection from '../components/AboutSection';
-import ProjectsSection from '../components/ProjectsSection';
-import ContactSection from '../components/ContactSection';
+import AboutSection from './components/AboutSection';
+import ProjectsSection from './components/ProjectsSection';
+import ContactSection from './components/ContactSection';
 
 export default function HomePage() {
   return (
@@ -54,4 +53,4 @@ export default function HomePage() {
       <ContactSection />
     </>
   );
-}
+} 

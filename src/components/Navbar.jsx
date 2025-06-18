@@ -1,6 +1,4 @@
-'use client';
-
-import Link from 'next/link';
+import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 
@@ -17,10 +15,10 @@ export default function CustomNavbar() {
           <Navbar.Toggle aria-controls="portfolio-navbar" />
           <Navbar.Collapse id="portfolio-navbar">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} href="#home">Home</Nav.Link>
-              <Nav.Link as={Link} href="#about">About</Nav.Link>
-              <Nav.Link as={Link} href="#projects">Projects</Nav.Link>
-              <Nav.Link as={Link} href="#contact">Contact</Nav.Link>
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#about">About</Nav.Link>
+              <Nav.Link href="#projects">Projects</Nav.Link>
+              <Nav.Link href="#contact">Contact</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -1,5 +1,4 @@
-'use client';
-
+import React from 'react';
 import { useState } from 'react';
 import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap';
 import { motion } from 'framer-motion';
