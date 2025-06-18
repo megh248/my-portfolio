@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import AboutSection from '../components/AboutSection';
 import ProjectsSection from '../components/ProjectsSection';
