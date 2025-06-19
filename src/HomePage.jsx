@@ -19,7 +19,7 @@ export default function HomePage() {
                 transition={{ duration: 0.6 }}
                 className="fw-bold display-5"
               >
-                👋 Hi, I'm Megh
+                👋 Hi, I'm Megh Buch
               </motion.h1>
 
               <motion.p
@@ -28,7 +28,7 @@ export default function HomePage() {
                 transition={{ delay: 0.3 }}
                 className="lead mt-3"
               >
-                Front-End Developer specializing in HTML, CSS/SCSS, React & Bootstrap.
+                Front-End Developer specializing in <br/><h5>HTML, CSS/SCSS, JS, React & Bootstrap, and a little bit of Flutter.</h5>
               </motion.p>
 
               <motion.div

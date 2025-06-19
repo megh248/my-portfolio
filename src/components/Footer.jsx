@@ -22,15 +22,6 @@ export default function Footer() {
               
               <div className="social-links mb-4">
                 <a
-                  href="https://github.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-light me-3 fs-4"
-                  style={{ textDecoration: 'none' }}
-                >
-                  <i className="bi bi-github"></i>
-                </a>
-                <a
                   href="linkedin.com/in/megh-buch"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -45,15 +36,6 @@ export default function Footer() {
                   style={{ textDecoration: 'none' }}
                 >
                   <i className="bi bi-envelope"></i>
-                </a>
-                <a
-                  href="https://twitter.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-light fs-4"
-                  style={{ textDecoration: 'none' }}
-                >
-                  <i className="bi bi-twitter"></i>
                 </a>
               </div>
               

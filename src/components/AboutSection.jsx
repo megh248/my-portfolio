@@ -5,30 +5,31 @@ import { motion } from 'framer-motion';
 export default function AboutSection() {
   const skills = [
     { name: 'HTML/CSS', level: 95 },
-    { name: 'JavaScript', level: 90 },
-    { name: 'React', level: 85 },
-    { name: 'Bootstrap', level: 90 },
-    { name: 'SCSS/SASS', level: 80 },
-    { name: 'Next.js', level: 75 }
+    { name: 'JavaScript', level: 95 },
+    { name: 'React', level: 95 },
+    { name: 'Bootstrap', level: 95 },
+    { name: 'SCSS/SASS', level: 95 },
+    { name: 'Next.js', level: 75 },
+    { name: 'Flutter', level: 80}
   ];
 
   const experiences = [
     {
       title: "I.T. Analyst",
       company: 'Tata Consultancy Services',
-      period: '2025 - Present',
+      period: 'May 2025 - Present',
       description: 'Projects to be allocated to me.'
     },
     {
       title: 'Software Engineer',
       company: 'Trinarybits Technologies Pvt. Ltd.',
-      period: '2020 - 2025',
+      period: 'July 2020 - April 2025',
       description: 'Developed responsive web applications using React and modern CSS frameworks.'
     },
     {
       title: 'Project Intern',
       company: 'Serpent Consulting Services Pvt. Ltd.',
-      period: '2016 - 2017',
+      period: 'May 2016 - April 2017',
       description: 'Built user interfaces and implemented frontend features for various client projects.'
     }
   ];
@@ -59,9 +60,12 @@ export default function AboutSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-100 border-0 shadow-sm">
+                <Card className="h-100 border shadow-sm">
                   <Card.Body className="p-4">
                     <h4 className="fw-bold mb-3">My Story</h4>
+                    <p className="text-muted">
+                      I am a results-driven IT professional with a strong background in frontend development, specializing in building responsive and visually appealing web applications. With a proven track record of delivering high-quality solutions in fast-paced environments, I excel at collaborating with cross-functional teams to achieve project goals and enhance user experiences.
+                    </p>
                     <p className="text-muted">
                       I'm a dedicated frontend developer with a passion for creating beautiful,
                       functional, and user-friendly web applications. With expertise in modern
@@ -69,9 +73,7 @@ export default function AboutSection() {
                       delivering exceptional user experiences through clean, maintainable code.
                     </p>
                     <p className="text-muted">
-                      When I'm not coding, you can find me exploring new technologies,
-                      contributing to open-source projects, or sharing knowledge with the
-                      developer community.
+                      Outside of work, I am passionate about sports, dance, reading, and travelling. I enjoy exploring new technologies, contributing to open-source projects, and sharing knowledge with the developer community.
                     </p>
                   </Card.Body>
                 </Card>
@@ -85,7 +87,7 @@ export default function AboutSection() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-100 border-0 shadow-sm">
+                <Card className="h-100 border shadow-sm">
                   <Card.Body className="p-4">
                     <h4 className="fw-bold mb-3">Skills</h4>
                     {skills.map((skill, index) => (
@@ -119,7 +121,7 @@ export default function AboutSection() {
                 <Row className="g-4">
                   {experiences.map((exp, index) => (
                     <Col md={6} key={index}>
-                      <Card className="border-0 shadow-sm h-100">
+                      <Card className="border shadow-sm h-100">
                         <Card.Body className="p-4">
                           <h6 className="fw-bold text-primary">{exp.title}</h6>
                           <p className="text-muted mb-2">{exp.company}</p>

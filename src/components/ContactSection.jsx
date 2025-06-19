@@ -34,7 +34,7 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <Row className="text-center mb-5">
+          <Row className="text-center">
             <Col>
               <h2 className="fw-bold mb-3">Get In Touch</h2>
               <p className="lead text-muted">
@@ -51,7 +51,7 @@ export default function ContactSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <Card className="border-0 shadow-sm">
+                <Card className="border shadow-sm">
                   <Card.Body className="p-4">
                     <h4 className="fw-bold mb-4 text-center">Contact Info</h4>
                     <div className="contact-info">
