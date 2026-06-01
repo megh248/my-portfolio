@@ -1,61 +1,49 @@
 import React from 'react';
-import { Card, Badge, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 
+const PROJECT_ICONS = {
+  'Interactive Data Dashboard': 'bi-graph-up-arrow',
+  'Personal Portfolio Website': 'bi-window-desktop',
+  'Broker Accounting System Portal': 'bi-bank',
+  'Sales & Invoice Management': 'bi-receipt',
+  'Business Evaluation & Guidance System': 'bi-clipboard-data',
+  'Internal Application Tool': 'bi-tools',
+};
+
 export default function ProjectCard({ project }) {
+  const icon = PROJECT_ICONS[project.title] || 'bi-folder2-open';
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      whileHover={{ y: -5 }}
-      viewport={{ once: true }}
+    <motion.article
+      className="project-card-wrapper"
+      whileHover={{ y: -10 }}
+      transition={{ type: 'spring', stiffness: 320, damping: 22 }}
     >
-      <Card className="h-100 project-card shadow-sm">
-        <Card.Body className="d-flex flex-column p-4">
-          <Card.Title className="fw-bold mb-3">{project.title}</Card.Title>
-          <Card.Text className="flex-grow-1 mb-3">{project.description}</Card.Text>
-          
-          <div className="technologies mb-3">
-            {project.technologies.map((tech, index) => (
-              <Badge
-                key={index}
-                bg="secondary"
-                className="me-1 mb-1"
-                style={{ fontSize: '0.75rem' }}
-              >
-                {tech}
-              </Badge>
-            ))}
+      <Card className="project-card-enhanced">
+        <div className="project-card-accent" aria-hidden="true" />
+        {project.featured && (
+          <span className="project-featured-badge">
+            <i className="bi bi-star-fill me-1" />
+            Featured
+          </span>
+        )}
+        <Card.Body className="project-card-body d-flex flex-column p-4 pt-4">
+          <div className="project-card-icon mb-3">
+            <i className={`bi ${icon}`} />
           </div>
-          
-          <div className="mt-auto">
-            {project.githubUrl && (
-              <Button
-                variant="outline-primary"
-                size="sm"
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="me-2"
-              >
-                GitHub
-              </Button>
-            )}
-            {project.liveUrl && (
-              <Button
-                variant="primary"
-                size="sm"
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Live Demo
-              </Button>
-            )}
+          <Card.Title className="fw-bold mb-2 project-card-title">{project.title}</Card.Title>
+          <Card.Text className="text-muted project-card-desc">{project.description}</Card.Text>
+
+          <div className="project-card-tags d-flex flex-wrap gap-2 mt-auto">
+            {project.technologies.map((tech) => (
+              <span key={tech} className="project-tech-tag">
+                {tech}
+              </span>
+            ))}
           </div>
         </Card.Body>
       </Card>
-    </motion.div>
+    </motion.article>
   );
 }

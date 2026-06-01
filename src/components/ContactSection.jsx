@@ -1,88 +1,125 @@
 import React from 'react';
-
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
+import SectionHeader from './SectionHeader';
+import { staggerContainer, scaleIn } from '../utils/motion';
+
+const contactInfo = [
+  {
+    icon: 'bi-envelope-fill',
+    title: 'Email',
+    value: 'megh24898@gmail.com',
+    link: 'mailto:megh24898@gmail.com',
+    cta: 'Send Email',
+  },
+  {
+    icon: 'bi-geo-alt-fill',
+    title: 'Location',
+    value: 'Bengaluru, India',
+    link: null,
+    cta: null,
+  },
+  {
+    icon: 'bi-linkedin',
+    title: 'LinkedIn',
+    value: 'linkedin.com/in/megh-buch',
+    link: 'https://linkedin.com/in/megh-buch',
+    cta: 'Connect',
+  },
+];
 
 export default function ContactSection() {
-  const contactInfo = [
-    {
-      icon: 'bi bi-envelope',
-      title: 'Email',
-      value: 'megh24898@gmail.com',
-      link: 'mailto:megh24898@gmail.com'
-    },
-    {
-      icon: 'bi bi-geo-alt',
-      title: 'Location',
-      value: 'Bengaluru, India',
-      link: null
-    },
-    {
-      icon: 'bi bi-linkedin',
-      title: 'LinkedIn',
-      value: 'linkedin.com/in/megh-buch',
-      link: 'https://linkedin.com/in/megh-buch'
-    },
-  ];
-
   return (
-    <section id="contact" className="py-5">
-      <Container>
+    <section id="contact" className="section-contact">
+      <div className="section-bg-decor" aria-hidden="true" />
+      <Container className="position-relative">
+        <SectionHeader
+          badge="Contact"
+          title="Let's Build Something Great"
+          subtitle="Open to frontend engineering roles, consulting, and collaboration on React and TypeScript products"
+        />
+
         <motion.div
+          className="contact-cta-banner"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.55 }}
           viewport={{ once: true }}
         >
-          <Row className="text-center">
-            <Col>
-              <h2 className="fw-bold mb-3">Get In Touch</h2>
-              <p className="lead text-muted">
-                Let's work together on your next project
-              </p>
-            </Col>
-          </Row>
+          <div className="contact-cta-content">
+            <h4 className="fw-bold mb-2">Ready to collaborate?</h4>
+            <p className="mb-0 opacity-90">
+              I&apos;m currently open to senior frontend opportunities and impactful product work.
+            </p>
+          </div>
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+            <Button
+              href="mailto:megh24898@gmail.com"
+              className="contact-cta-btn"
+              size="lg"
+            >
+              <i className="bi bi-send-fill me-2" />
+              Start a Conversation
+            </Button>
+          </motion.div>
+        </motion.div>
 
-          <Row className="justify-content-center">
-            <Col lg={6} md={8}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className="border shadow-sm">
-                  <Card.Body className="p-4">
-                    <h4 className="fw-bold mb-4 text-center">Contact Info</h4>
-                    <div className="contact-info">
-                      {contactInfo.map((info, index) => (
-                        <div key={index} className="mb-4 text-center">
-                          <div className="d-flex align-items-center justify-content-center mb-2">
-                            <i className={`${info.icon} fs-4 text-primary me-3`}></i>
-                            <h6 className="fw-bold mb-0">{info.title}</h6>
-                          </div>
-                          {info.link ? (
-                            <a
-                              href={info.link}
-                              target={info.link.startsWith('http') ? '_blank' : undefined}
-                              rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                              className="text-muted text-decoration-none fs-5"
-                            >
-                              {info.value}
-                            </a>
-                          ) : (
-                            <p className="text-muted mb-0 fs-5">{info.value}</p>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </Card.Body>
-                </Card>
+        <motion.div
+          className="row g-4 justify-content-center"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+        >
+          {contactInfo.map((info) => (
+            <Col md={6} lg={4} key={info.title}>
+              <motion.div variants={scaleIn} className="h-100">
+                <motion.div
+                  className="contact-card h-100"
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                >
+                  <div className="contact-card-icon">
+                    <i className={`bi ${info.icon}`} />
+                  </div>
+                  <h5 className="fw-bold mb-2">{info.title}</h5>
+                  {info.link ? (
+                    <a
+                      href={info.link}
+                      target={info.link.startsWith('http') ? '_blank' : undefined}
+                      rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="contact-card-value"
+                    >
+                      {info.value}
+                    </a>
+                  ) : (
+                    <p className="contact-card-value mb-0">{info.value}</p>
+                  )}
+                  {info.cta && info.link && (
+                    <a href={info.link} className="contact-card-link mt-3">
+                      {info.cta}
+                      <i className="bi bi-arrow-right ms-1" />
+                    </a>
+                  )}
+                </motion.div>
               </motion.div>
             </Col>
-          </Row>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="contact-footer-note text-center mt-5"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-muted mb-0">
+            <i className="bi bi-clock me-2" />
+            Typically responds within 24–48 hours
+          </p>
         </motion.div>
       </Container>
     </section>
   );
-} 
+}
